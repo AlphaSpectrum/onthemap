@@ -1,5 +1,5 @@
 //
-//  OAuthResponse.swift
+//  Login.swift
 //  On The Map
 //
 //  Created by Alan Campos on 7/24/17.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol Authentication {
+protocol LoginAuth {
     var data: Data? { get }
     var sessionID: String { get }
     var response: Data? { get }
 }
 
-struct LoginResponse: Authentication, JSONParsable {
+struct LoginData: LoginAuth, JSONParsable {
     var data: Data?
     var sessionID: String {
         let jsonObject = convertToJSON(data: response!)

@@ -7,6 +7,6 @@
 //
 
 protocol UserAlertable {
-    typealias SendFunc = () -> ()
-    func alertUserOfError(title: String, message: String, actionName: String, completion: SendFunc)
+    typealias WithFunc = () -> ()
+    func alertUserOfError(title: String, message: String, actionName: String, completion: WithFunc)
 }

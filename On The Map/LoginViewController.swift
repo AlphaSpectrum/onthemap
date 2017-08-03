@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, JSONParsable {
     @IBOutlet weak var warningLabel: UILabel!
     
     var connection: CConnection?
-    var response: LoginResponse?
+    var response: LoginData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController, JSONParsable {
                 // Don't forget to change pass back to success
                 performUIUpdatesOnMain {
                     if pass {
-                        if let response = LoginResponse(data: data) as? LoginResponse {
+                        if let response = LoginData(data: data) as? LoginData {
                             self.response = response
                         }
                         self.completeLogin()

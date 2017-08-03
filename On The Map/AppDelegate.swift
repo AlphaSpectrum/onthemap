@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var authResponse: LoginResponse?
+    var authResponse: LoginData?
     var userArray: [String : AnyObject]?
     
     let connection = CConnection()

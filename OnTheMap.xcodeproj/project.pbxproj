@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA3347A11F1EEE8F0039FBE8 /* ConnectionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3347A01F1EEE8F0039FBE8 /* ConnectionClient.swift */; };
-		FA4178521F26CA4F00B81F12 /* OAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4178511F26CA4F00B81F12 /* OAuthResponse.swift */; };
+		FA4178521F26CA4F00B81F12 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4178511F26CA4F00B81F12 /* Login.swift */; };
 		FA4A6CCC1F338DEF00295461 /* CConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A6CCB1F338DEF00295461 /* CConnection.swift */; };
 		FA51347D1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */; };
 		FA972C691F27B972001D06FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA972C681F27B972001D06FA /* MapViewController.swift */; };
 		FA972C6B1F27BF44001D06FA /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA972C6A1F27BF44001D06FA /* GDCBlackBox.swift */; };
 		FAA5EC341F3354F200FE8479 /* HandleMapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5EC331F3354F200FE8479 /* HandleMapSearch.swift */; };
 		FAA5EC371F33559200FE8479 /* JSONParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5EC361F33559200FE8479 /* JSONParsable.swift */; };
-		FAA5EC391F3355B100FE8479 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5EC381F3355B100FE8479 /* HTTPRequest.swift */; };
 		FAA5EC3B1F3355D800FE8479 /* UserAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5EC3A1F3355D800FE8479 /* UserAlertable.swift */; };
 		FAA5EC401F33572100FE8479 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5EC3F1F33572100FE8479 /* ConnectionHandler.swift */; };
 		FABD79771F30D03D0023FDA2 /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD79761F30D03D0023FDA2 /* TableListViewController.swift */; };
@@ -27,7 +25,6 @@
 		FAD387761F1E376800681A9F /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD387751F1E376800681A9F /* On_The_MapTests.swift */; };
 		FAD387811F1E376800681A9F /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD387801F1E376800681A9F /* On_The_MapUITests.swift */; };
 		FAD3878F1F1E3A2200681A9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3878E1F1E3A2200681A9F /* Constants.swift */; };
-		FAD387951F1E604500681A9F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD387941F1E604500681A9F /* Header.swift */; };
 		FADEB9961F1FCFD2007E9C2A /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEB9951F1FCFD2007E9C2A /* RequestMethod.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,15 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA3347A01F1EEE8F0039FBE8 /* ConnectionClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionClient.swift; path = "On The Map/ConnectionClient.swift"; sourceTree = "<group>"; };
-		FA4178511F26CA4F00B81F12 /* OAuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuthResponse.swift; path = "On The Map/OAuthResponse.swift"; sourceTree = "<group>"; };
+		FA4178511F26CA4F00B81F12 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = "On The Map/Login.swift"; sourceTree = "<group>"; };
 		FA4A6CCB1F338DEF00295461 /* CConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CConnection.swift; sourceTree = "<group>"; };
 		FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		FA972C681F27B972001D06FA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FA972C6A1F27BF44001D06FA /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
 		FAA5EC331F3354F200FE8479 /* HandleMapSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleMapSearch.swift; sourceTree = "<group>"; };
 		FAA5EC361F33559200FE8479 /* JSONParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParsable.swift; sourceTree = "<group>"; };
-		FAA5EC381F3355B100FE8479 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		FAA5EC3A1F3355D800FE8479 /* UserAlertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlertable.swift; sourceTree = "<group>"; };
 		FAA5EC3F1F33572100FE8479 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		FABD79761F30D03D0023FDA2 /* TableListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +70,6 @@
 		FAD387801F1E376800681A9F /* On_The_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapUITests.swift; sourceTree = "<group>"; };
 		FAD387821F1E376800681A9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD3878E1F1E3A2200681A9F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FAD387941F1E604500681A9F /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Header.swift; path = "On The Map/Header.swift"; sourceTree = "<group>"; };
 		FADEB9951F1FCFD2007E9C2A /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestMethod.swift; path = "On The Map/RequestMethod.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +113,6 @@
 			children = (
 				FAA5EC3F1F33572100FE8479 /* ConnectionHandler.swift */,
 				FAA5EC361F33559200FE8479 /* JSONParsable.swift */,
-				FAA5EC381F3355B100FE8479 /* HTTPRequest.swift */,
 				FAA5EC3A1F3355D800FE8479 /* UserAlertable.swift */,
 				FAA5EC331F3354F200FE8479 /* HandleMapSearch.swift */,
 			);
@@ -129,7 +122,6 @@
 		FAA5EC3D1F33568200FE8479 /* Declarations */ = {
 			isa = PBXGroup;
 			children = (
-				FA3347A01F1EEE8F0039FBE8 /* ConnectionClient.swift */,
 				FAA5EC3E1F3356A200FE8479 /* Connection */,
 			);
 			name = Declarations;
@@ -146,8 +138,7 @@
 		FAA5EC431F33612800FE8479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FAD387941F1E604500681A9F /* Header.swift */,
-				FA4178511F26CA4F00B81F12 /* OAuthResponse.swift */,
+				FA4178511F26CA4F00B81F12 /* Login.swift */,
 				FADEB9951F1FCFD2007E9C2A /* RequestMethod.swift */,
 			);
 			name = Model;
@@ -300,7 +291,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FAD387581F1E376800681A9F /* Build configuration list for PBXProject "On The Map" */;
+			buildConfigurationList = FAD387581F1E376800681A9F /* Build configuration list for PBXProject "OnTheMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -357,16 +348,13 @@
 				FAA5EC371F33559200FE8479 /* JSONParsable.swift in Sources */,
 				FA51347D1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift in Sources */,
 				FA4A6CCC1F338DEF00295461 /* CConnection.swift in Sources */,
-				FAD387951F1E604500681A9F /* Header.swift in Sources */,
 				FAD387631F1E376800681A9F /* LoginViewController.swift in Sources */,
 				FADEB9961F1FCFD2007E9C2A /* RequestMethod.swift in Sources */,
 				FA972C6B1F27BF44001D06FA /* GDCBlackBox.swift in Sources */,
-				FA3347A11F1EEE8F0039FBE8 /* ConnectionClient.swift in Sources */,
 				FAA5EC3B1F3355D800FE8479 /* UserAlertable.swift in Sources */,
 				FAD387611F1E376800681A9F /* AppDelegate.swift in Sources */,
 				FAA5EC341F3354F200FE8479 /* HandleMapSearch.swift in Sources */,
-				FA4178521F26CA4F00B81F12 /* OAuthResponse.swift in Sources */,
-				FAA5EC391F3355B100FE8479 /* HTTPRequest.swift in Sources */,
+				FA4178521F26CA4F00B81F12 /* Login.swift in Sources */,
 				FA972C691F27B972001D06FA /* MapViewController.swift in Sources */,
 				FABD79771F30D03D0023FDA2 /* TableListViewController.swift in Sources */,
 			);
@@ -599,7 +587,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAD387581F1E376800681A9F /* Build configuration list for PBXProject "On The Map" */ = {
+		FAD387581F1E376800681A9F /* Build configuration list for PBXProject "OnTheMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAD387831F1E376800681A9F /* Debug */,
