@@ -11,6 +11,7 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, JSONParsable {
     
+    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     //let locationManager = CLLocationManager()
@@ -28,25 +29,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
-        //locationManager.delegate = self
-        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //locationManager.requestWhenInUseAuthorization()
-        //locationManager.requestLocation()
-        
-        /*
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for a location to post"
-        navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-        locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
-        */
         configSearchBar()
         searchBar?.isHidden = true
         loadMapUsers()

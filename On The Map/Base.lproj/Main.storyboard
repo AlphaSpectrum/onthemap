@@ -149,11 +149,21 @@
                                     <outlet property="delegate" destination="ufd-l8-eHh" id="3IF-WU-Myw"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIM-NJ-Kkf">
+                                <rect key="frame" x="272" y="383" width="32" height="32"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="pin">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cjF-3K-hHG" firstAttribute="leading" secondItem="y8L-EK-nbG" secondAttribute="leading" id="Vh0-sm-1tG"/>
+                            <constraint firstItem="O45-Zh-Hkh" firstAttribute="top" secondItem="XIM-NJ-Kkf" secondAttribute="bottom" constant="16" id="ioq-pT-7Nk"/>
                             <constraint firstItem="cjF-3K-hHG" firstAttribute="top" secondItem="3yc-IG-fsz" secondAttribute="bottom" id="kUQ-An-OJy"/>
+                            <constraint firstItem="XIM-NJ-Kkf" firstAttribute="trailing" secondItem="y8L-EK-nbG" secondAttribute="trailingMargin" id="mia-CK-mfM"/>
                             <constraint firstItem="O45-Zh-Hkh" firstAttribute="top" secondItem="cjF-3K-hHG" secondAttribute="bottom" id="odD-oF-pVG"/>
                             <constraint firstAttribute="trailing" secondItem="cjF-3K-hHG" secondAttribute="trailing" id="uTs-LW-QB2"/>
                         </constraints>
@@ -167,6 +177,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
+                        <outlet property="postButton" destination="XIM-NJ-Kkf" id="ZhJ-OT-EpY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbv-ZS-Kq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
