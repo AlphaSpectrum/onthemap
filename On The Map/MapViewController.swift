@@ -20,7 +20,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     var alertShown = false
     var annotations = [MKPointAnnotation]()
     var connection: CConnection?
-    var resultSearchController = UISearchController()
+    var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
     var currentLocation: CLLocation?
     
@@ -33,22 +33,20 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         //locationManager.requestLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController.searchResultsUpdater = locationSearchTable
-        let searchBar = resultSearchController.searchBar
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for a location to post"
-        navigationItem.titleView = resultSearchController.searchBar
-        resultSearchController.hidesNavigationBarDuringPresentation = false
-        resultSearchController.dimsBackgroundDuringPresentation = true
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
-        //searchBar.isHidden = true
         loadMapUsers()
     }
     
     @IBAction func postAction(_ sender: Any) {
-        //searchbar
     }
     
     private func dropMultiplePins(using jsonData: [String : AnyObject]) {
