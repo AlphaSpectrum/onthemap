@@ -12,37 +12,43 @@ import MapKit
 class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, JSONParsable {
     
     @IBOutlet weak var mapView: MKMapView!
-        
-    let locationManager = CLLocationManager()
+    
+    //let locationManager = CLLocationManager()
+    
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
     var alertShown = false
     var annotations = [MKPointAnnotation]()
     var connection: CConnection?
-    var resultSearchController: UISearchController?
+    var resultSearchController = UISearchController()
     var selectedPin: MKPlacemark?
     var currentLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        //locationManager.delegate = self
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //locationManager.requestWhenInUseAuthorization()
+        //locationManager.requestLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        let searchBar = resultSearchController!.searchBar
+        resultSearchController.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for a location to post"
-        navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+        navigationItem.titleView = resultSearchController.searchBar
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        resultSearchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
+        //searchBar.isHidden = true
         loadMapUsers()
+    }
+    
+    @IBAction func postAction(_ sender: Any) {
+        //searchbar
     }
     
     private func dropMultiplePins(using jsonData: [String : AnyObject]) {
@@ -58,8 +64,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
                 annotation.title = "\(first) \(last)"
                 annotation.subtitle = mediaURL
                 annotations.append(annotation)
-            } else {
-                continue
             }
         }
         mapView.addAnnotations(annotations)
@@ -109,10 +113,11 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
             annotationView!.tintColor = .green
             annotationView!.canShowCallout = true
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView?.animatesDrop = true
         } else {
             annotationView!.annotation = annotation
         }
-        
+
         if annotation is MKPointAnnotation {
             annotationView?.pinTintColor = .orange
         }
@@ -120,21 +125,30 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         return annotationView
     }
 
-    
+    // This is where I post
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //view.image = #imageLiteral(resourceName: "pin")
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle! {
-                app.open(URL(string: toOpen)!, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
+            
+            if selectedPin != nil {
+                //view.image = #imageLiteral(resourceName: "pin")
+            } else {
+                let app = UIApplication.shared
+                if let toOpen = view.annotation?.subtitle! {
+                    if let url = URL(string: toOpen) {
+                        app.open(url, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
+                    }
+                }
             }
         }
     }
 }
 
+/*
 extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
+            //locationManager.requestLocation()
         }
     }
     
@@ -151,6 +165,7 @@ extension MapViewController : CLLocationManagerDelegate {
         print("error:  \(error)")
     }
 }
+*/
 
 extension HandleMapSearch where Self : MapViewController {
     func dropPin(zoom inPlacemark: MKPlacemark) {
@@ -160,15 +175,16 @@ extension HandleMapSearch where Self : MapViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = inPlacemark.coordinate
         annotation.title = inPlacemark.name
+        
         if let city = inPlacemark.locality, let state = inPlacemark.administrativeArea {
             annotation.subtitle = "\(city), \(state)"
         }
+        
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(inPlacemark.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
-    
 }
 
 extension MapViewController: UserAlertable {

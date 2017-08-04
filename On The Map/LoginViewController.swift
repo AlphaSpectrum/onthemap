@@ -55,8 +55,8 @@ class LoginViewController: UIViewController, JSONParsable {
                 // Don't forget to change pass back to success
                 performUIUpdatesOnMain {
                     if pass {
-                        if let response = LoginData(data: data) as? LoginData {
-                            self.response = response
+                        if let data = data {
+                            self.response = LoginData(data: data)
                         }
                         self.completeLogin()
                     } else {

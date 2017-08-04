@@ -31,20 +31,22 @@ class TableListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewCell")
         let selectedUser = users?[indexPath.row]
         
-        let firstName = (selectedUser?["firstName"] as? String ?? "First")
-        let lastName = (selectedUser?["lastName"] as? String ?? "Last")
-        let mediaURL = (selectedUser?["mediaURL"] as? String ?? "No media URL")
-        
-        cell?.textLabel?.text = "\(firstName) \(lastName)"
-        cell?.detailTextLabel?.text = "\(mediaURL)"
-        selectedCell.append(cell!)
+        if let firstName = selectedUser?["firstName"] as? String,
+            let lastName = selectedUser?["lastName"] as? String,
+            let mediaURL = selectedUser?["mediaURL"] as? String {
+            cell?.textLabel?.text = "\(firstName) \(lastName)"
+            cell?.detailTextLabel?.text = "\(mediaURL)"
+            selectedCell.append(cell!)
+        }
         return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let app = UIApplication.shared
         if let toOpen = selectedCell[indexPath.row].detailTextLabel?.text {
-            app.open(URL(string: toOpen)!, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
+            if let url = URL(string: toOpen) {
+                app.open(url, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
+            }
         }
     }
 }

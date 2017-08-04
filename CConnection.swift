@@ -61,7 +61,7 @@ struct CConnection: ConnectionHandler {
             }
             
             guard let data = data else {
-                sendError("Server unresponsive")
+                sendError("Server unresponsive.")
                 return
             }
             

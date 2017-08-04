@@ -158,7 +158,13 @@
                             <constraint firstAttribute="trailing" secondItem="cjF-3K-hHG" secondAttribute="trailing" id="uTs-LW-QB2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YfT-EH-0RW"/>
+                    <navigationItem key="navigationItem" id="YfT-EH-0RW">
+                        <barButtonItem key="rightBarButtonItem" image="pin" style="plain" id="dKi-Yu-n34">
+                            <connections>
+                                <action selector="postAction:" destination="ufd-l8-eHh" id="Zc1-cu-UWz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
                     </connections>

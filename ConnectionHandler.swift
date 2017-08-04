@@ -10,10 +10,7 @@ import Foundation
 
 protocol ConnectionHandler {
     func connect(to url: URL)
-    
     func connect(to url: URL, httpHeaders: [String : String]?, method: RequestMethod, httpBody: String?, completionHandler: @escaping (_ data: Data?, _ success: Bool?, _ errorMessage: String?) -> Void)
-    
     func performConnection(url: URL, httpHeaders: [String : String]?, method: RequestMethod, httpBody: String?, completionHandler: @escaping (_ data: Data?, _ sucess: Bool?, _ error: String?) -> Void)
-    
     func formatAsURL(scheme: String?, host: String?, path: String?, query: String?) -> URL
 }
