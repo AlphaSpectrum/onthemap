@@ -23,6 +23,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
     var currentLocation: CLLocation?
+    var searchBar: UISearchBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         //locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //locationManager.requestWhenInUseAuthorization()
         //locationManager.requestLocation()
+        
+        /*
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -43,10 +46,32 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
+        */
+        configSearchBar()
+        searchBar?.isHidden = true
         loadMapUsers()
     }
     
     @IBAction func postAction(_ sender: Any) {
+        searchBar?.isHidden = false
+        //resultSearchController?.isActive = true
+        //resultSearchController?.becomeFirstResponder()
+        searchBar?.becomeFirstResponder()
+    }
+    
+    func configSearchBar() {
+        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        searchBar = resultSearchController?.searchBar
+        searchBar?.sizeToFit()
+        searchBar?.placeholder = "Search for a location"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearchDelegate = self
     }
     
     private func dropMultiplePins(using jsonData: [String : AnyObject]) {
