@@ -11,7 +11,6 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, JSONParsable {
     
-    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     //let locationManager = CLLocationManager()
@@ -29,19 +28,16 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
-        configSearchBar()
-        searchBar?.isHidden = true
+        configureSearchBar()
         loadMapUsers()
     }
     
     @IBAction func postAction(_ sender: Any) {
         searchBar?.isHidden = false
-        //resultSearchController?.isActive = true
-        //resultSearchController?.becomeFirstResponder()
         searchBar?.becomeFirstResponder()
     }
     
-    func configSearchBar() {
+    func configureSearchBar() {
         let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
