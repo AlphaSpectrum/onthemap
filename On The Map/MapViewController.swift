@@ -16,6 +16,11 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     //let locationManager = CLLocationManager()
     
+    let header = [
+        Constants.Key.api : Constants.Value.api,
+        Constants.Key.parse : Constants.Value.parse
+    ]
+    
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
     var alertShown = false
@@ -26,16 +31,12 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     var currentLocation: CLLocation?
     var searchBar: UISearchBar?
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
-        postButton.isHidden = true
+        //postButton.isHidden = true
         configureSearchBar()
         loadMapUsers()
-        postButton.isHidden = true
     }
     
     private func configureSearchBar() {
@@ -80,11 +81,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     private func loadMapUsers() {
         let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: "limit=100")
-        
-        let header = [
-            Constants.Key.api : Constants.Value.api,
-            Constants.Key.parse : Constants.Value.parse
-        ]
     
         connection?.connect(to: url!, httpHeaders: header, method: .get, httpBody: nil) {
             data, success, error in
@@ -127,7 +123,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         return annotationView
     }
 
-    // This is where I post
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         //view.image = #imageLiteral(resourceName: "pin")
         if control == view.rightCalloutAccessoryView {
@@ -144,30 +139,26 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
             }
         }
     }
-}
-
-/*
-extension MapViewController : CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            //locationManager.requestLocation()
+    
+    @IBAction func testPost(_ sender: Any) {
+        let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
+        
+        print(url)
+        
+        let additionalRequest = header
+        var headers = additionalRequest
+        headers["Content-Type"] = "application/json"
+        print(headers)
+        
+        let httpBody = "{\"uniqueKey\": \"2345345\", \"firstName\": \"Alan\", \"lastName\": \"Campos\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}"
+        
+        connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
+            data, success, error in
+            print(error)
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            currentLocation = location
-            let span = MKCoordinateSpanMake(150.0, 150.0)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error:  \(error)")
-    }
 }
-*/
 
 extension HandleMapSearch where Self : MapViewController {
     func dropPin(zoom inPlacemark: MKPlacemark, completionHandler: @escaping (_ button: UIButton) -> Void) {
@@ -193,8 +184,10 @@ extension HandleMapSearch where Self : MapViewController {
 extension MapViewController: UserAlertable {
     internal func alertUserOfError(title: String, message: String, actionName: String, completion: WithFunc) {
         if !alertShown {
+            
             // Set alertShown to true so we notify the user only once
             alertShown = true
+            
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: actionName, style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -204,5 +197,28 @@ extension MapViewController: UserAlertable {
         }
     }
 }
+
+/*
+ extension MapViewController : CLLocationManagerDelegate {
+ func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+ if status == .authorizedWhenInUse {
+ //locationManager.requestLocation()
+ }
+ }
+ 
+ func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+ if let location = locations.first {
+ currentLocation = location
+ let span = MKCoordinateSpanMake(150.0, 150.0)
+ let region = MKCoordinateRegion(center: location.coordinate, span: span)
+ mapView.setRegion(region, animated: true)
+ }
+ }
+ 
+ func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+ print("error:  \(error)")
+ }
+ }
+ */
 
 

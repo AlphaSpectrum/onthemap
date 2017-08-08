@@ -152,6 +152,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA8-vA-a6T">
                                 <rect key="frame" x="137" y="375" width="46" height="46"/>
                                 <state key="normal" image="Post Icon"/>
+                                <connections>
+                                    <action selector="testPost:" destination="ufd-l8-eHh" eventType="touchUpInside" id="3eI-6u-Fvj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
