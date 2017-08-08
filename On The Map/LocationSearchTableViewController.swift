@@ -31,7 +31,12 @@ class LocationSearchTableViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
-        handleMapSearchDelegate?.dropPin(zoom: selectedItem)
+        handleMapSearchDelegate?.dropPin(zoom: selectedItem) {
+            button in
+            performUIUpdatesOnMain {
+                button.isHidden = false
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
     

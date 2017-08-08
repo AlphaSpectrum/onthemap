@@ -134,7 +134,7 @@
         <!--Map View Controller-->
         <scene sceneID="tzH-Bh-Nvl">
             <objects>
-                <viewController id="ufd-l8-eHh" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="ufd-l8-eHh" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3yc-IG-fsz"/>
                         <viewControllerLayoutGuide type="bottom" id="O45-Zh-Hkh"/>
@@ -149,10 +149,16 @@
                                     <outlet property="delegate" destination="ufd-l8-eHh" id="3IF-WU-Myw"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA8-vA-a6T">
+                                <rect key="frame" x="137" y="375" width="46" height="46"/>
+                                <state key="normal" image="Post Icon"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aA8-vA-a6T" firstAttribute="centerX" secondItem="y8L-EK-nbG" secondAttribute="centerX" id="BZe-Am-mRH"/>
                             <constraint firstItem="cjF-3K-hHG" firstAttribute="leading" secondItem="y8L-EK-nbG" secondAttribute="leading" id="Vh0-sm-1tG"/>
+                            <constraint firstItem="O45-Zh-Hkh" firstAttribute="top" secondItem="aA8-vA-a6T" secondAttribute="bottom" constant="10" id="f9j-8F-6pl"/>
                             <constraint firstItem="cjF-3K-hHG" firstAttribute="top" secondItem="3yc-IG-fsz" secondAttribute="bottom" id="kUQ-An-OJy"/>
                             <constraint firstItem="O45-Zh-Hkh" firstAttribute="top" secondItem="cjF-3K-hHG" secondAttribute="bottom" id="odD-oF-pVG"/>
                             <constraint firstAttribute="trailing" secondItem="cjF-3K-hHG" secondAttribute="trailing" id="uTs-LW-QB2"/>
@@ -161,11 +167,12 @@
                     <navigationItem key="navigationItem" id="YfT-EH-0RW"/>
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
+                        <outlet property="postButton" destination="aA8-vA-a6T" id="iSs-G3-olc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbv-ZS-Kq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="925"/>
+            <point key="canvasLocation" x="1942.5" y="925"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="RdL-bm-r3i">
@@ -322,6 +329,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Post Icon" width="46" height="46"/>
         <image name="list" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>

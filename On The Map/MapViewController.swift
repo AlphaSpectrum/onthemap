@@ -11,6 +11,7 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, JSONParsable {
     
+    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     //let locationManager = CLLocationManager()
@@ -25,19 +26,19 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     var currentLocation: CLLocation?
     var searchBar: UISearchBar?
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
+        postButton.isHidden = true
         configureSearchBar()
         loadMapUsers()
+        postButton.isHidden = true
     }
     
-    @IBAction func postAction(_ sender: Any) {
-        searchBar?.isHidden = false
-        searchBar?.becomeFirstResponder()
-    }
-    
-    func configureSearchBar() {
+    private func configureSearchBar() {
         let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -169,7 +170,7 @@ extension MapViewController : CLLocationManagerDelegate {
 */
 
 extension HandleMapSearch where Self : MapViewController {
-    func dropPin(zoom inPlacemark: MKPlacemark) {
+    func dropPin(zoom inPlacemark: MKPlacemark, completionHandler: @escaping (_ button: UIButton) -> Void) {
         selectedPin = inPlacemark
         //clear existing pins
         mapView.removeAnnotations(mapView.annotations)
@@ -185,6 +186,7 @@ extension HandleMapSearch where Self : MapViewController {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(inPlacemark.coordinate, span)
         mapView.setRegion(region, animated: true)
+        completionHandler(postButton)
     }
 }
 

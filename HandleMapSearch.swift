@@ -9,6 +9,6 @@
 import MapKit
 
 protocol HandleMapSearch {
-    func dropPin(zoom inPlacemark: MKPlacemark)
+    func dropPin(zoom inPlacemark: MKPlacemark, completionHandler: @escaping (_ button: UIButton) -> Void)
 }
 
