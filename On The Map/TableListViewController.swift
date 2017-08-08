@@ -17,14 +17,24 @@ class TableListViewController: UITableViewController {
     var users: [[String : AnyObject]]?
     var selectedCell = [UITableViewCell]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        connection = delegate.connection
+        if let user = delegate.userArray?["results"] as? [[String : AnyObject]] {
+            users = user
+        }
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        connection = delegate.connection
-        users = delegate.userArray?["results"] as? [[String : AnyObject]]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users!.count
+        if let user = users {
+            return user.count
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,6 +48,7 @@ class TableListViewController: UITableViewController {
             cell?.detailTextLabel?.text = "\(mediaURL)"
             selectedCell.append(cell!)
         }
+        
         return cell!
     }
     
