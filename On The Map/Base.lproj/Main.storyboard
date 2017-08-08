@@ -131,6 +131,33 @@
             </objects>
             <point key="canvasLocation" x="91.875" y="235"/>
         </scene>
+        <!--Add Location-->
+        <scene sceneID="OKe-x1-GGa">
+            <objects>
+                <viewController title="Add Location" id="2PD-sp-cyx" customClass="PostViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hKn-jL-3sg"/>
+                        <viewControllerLayoutGuide type="bottom" id="IX1-68-YK2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfs-H3-WPd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="1EB-fg-ak9">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Buq-Mq-pRx">
+                            <connections>
+                                <action selector="cancel:" destination="2PD-sp-cyx" id="4Pl-7k-SdZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="hP5-uD-DTv"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwp-bz-Hfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2904.375" y="200"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="tzH-Bh-Nvl">
             <objects>
@@ -153,7 +180,7 @@
                                 <rect key="frame" x="137" y="375" width="46" height="46"/>
                                 <state key="normal" image="Post Icon"/>
                                 <connections>
-                                    <action selector="testPost:" destination="ufd-l8-eHh" eventType="touchUpInside" id="3eI-6u-Fvj"/>
+                                    <segue destination="8AZ-qV-Fgb" kind="presentation" id="EmZ-hy-aKk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -329,6 +356,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLd-b6-ash" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1125" y="1625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QOh-Dz-Tj9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8AZ-qV-Fgb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zeP-zx-byr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2PD-sp-cyx" kind="relationship" relationship="rootViewController" id="feE-HC-rAg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0q2-74-sv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906.875" y="200"/>
         </scene>
     </scenes>
     <resources>

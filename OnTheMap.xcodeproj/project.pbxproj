@@ -10,6 +10,7 @@
 		FA4178521F26CA4F00B81F12 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4178511F26CA4F00B81F12 /* Login.swift */; };
 		FA4A6CCC1F338DEF00295461 /* CConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A6CCB1F338DEF00295461 /* CConnection.swift */; };
 		FA51347D1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */; };
+		FA88A2DE1F39529C00154A73 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88A2DD1F39529C00154A73 /* PostViewController.swift */; };
 		FA94C8921F34B1DA00C8B409 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94C8911F34B1DA00C8B409 /* Student.swift */; };
 		FA972C691F27B972001D06FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA972C681F27B972001D06FA /* MapViewController.swift */; };
 		FA972C6B1F27BF44001D06FA /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA972C6A1F27BF44001D06FA /* GDCBlackBox.swift */; };
@@ -50,6 +51,7 @@
 		FA4178511F26CA4F00B81F12 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = "On The Map/Login.swift"; sourceTree = "<group>"; };
 		FA4A6CCB1F338DEF00295461 /* CConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CConnection.swift; sourceTree = "<group>"; };
 		FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		FA88A2DD1F39529C00154A73 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FA94C8911F34B1DA00C8B409 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = "On The Map/Student.swift"; sourceTree = "<group>"; };
 		FA972C681F27B972001D06FA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FA972C6A1F27BF44001D06FA /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		FABE8DE41F277DAC0015DB9E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA88A2DD1F39529C00154A73 /* PostViewController.swift */,
 				FABD79761F30D03D0023FDA2 /* TableListViewController.swift */,
 				FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */,
 				FA972C681F27B972001D06FA /* MapViewController.swift */,
@@ -354,6 +357,7 @@
 				FAD387631F1E376800681A9F /* LoginViewController.swift in Sources */,
 				FADEB9961F1FCFD2007E9C2A /* RequestMethod.swift in Sources */,
 				FA972C6B1F27BF44001D06FA /* GDCBlackBox.swift in Sources */,
+				FA88A2DE1F39529C00154A73 /* PostViewController.swift in Sources */,
 				FAA5EC3B1F3355D800FE8479 /* UserAlertable.swift in Sources */,
 				FAD387611F1E376800681A9F /* AppDelegate.swift in Sources */,
 				FAA5EC341F3354F200FE8479 /* HandleMapSearch.swift in Sources */,

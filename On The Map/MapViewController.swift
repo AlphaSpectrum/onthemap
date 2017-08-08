@@ -142,13 +142,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     @IBAction func testPost(_ sender: Any) {
         let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
-        
-        print(url)
-        
-        let additionalRequest = header
-        var headers = additionalRequest
+        var headers = header
         headers["Content-Type"] = "application/json"
-        print(headers)
         
         let httpBody = "{\"uniqueKey\": \"2345345\", \"firstName\": \"Alan\", \"lastName\": \"Campos\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}"
         
