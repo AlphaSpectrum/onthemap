@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var authResponse: LoginData?
-    var userArray: [String : AnyObject]?
+    var userArray: [[String : AnyObject]]?
     
     let connection = CConnection()
     

@@ -54,8 +54,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         locationSearchTable.handleMapSearchDelegate = self
     }
     
-    private func dropMultiplePins(using jsonData: [String : AnyObject]) {
-        let results = jsonData["results"] as! [[String : AnyObject]]
+    private func dropMultiplePins(using jsonData: [[String : AnyObject]]) {
+        let results = jsonData
         for result in results {
             if let lat = result["latitude"] as? Double,
                 let long = result["longitude"] as? Double,
@@ -86,10 +86,12 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
             data, success, error in
             
             if success! {
-                let json = self.convertToJSON(data: data!)
+                let rawJSON = self.convertToJSON(data: data!)
                 performUIUpdatesOnMain {
-                    self.delegate.userArray = json
-                    self.dropMultiplePins(using: json)
+                    if let json = rawJSON["results"] as? [[String : AnyObject]] {
+                        self.delegate.userArray = json
+                        self.dropMultiplePins(using: json)
+                    }
                 }
             }  else {
                 performUIUpdatesOnMain {
@@ -149,8 +151,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         
         connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
             data, success, error in
-            print(error)
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
         }
     }
 }

@@ -15,26 +15,23 @@ class TableListViewController: UITableViewController {
 
     var connection: CConnection?
     var users: [[String : AnyObject]]?
-    var selectedCell = [UITableViewCell]()
+    var userCell = [UITableViewCell]()
     
     override func viewWillAppear(_ animated: Bool) {
-        connection = delegate.connection
-        if let user = delegate.userArray?["results"] as? [[String : AnyObject]] {
-            users = user
-        }
         self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        connection = delegate.connection
+        users = delegate.userArray
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let user = users {
-            return user.count
-        } else {
-            return 0
+        if let user = users?.count {
+            return user
         }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,16 +43,15 @@ class TableListViewController: UITableViewController {
             let mediaURL = selectedUser?["mediaURL"] as? String {
             cell?.textLabel?.text = "\(firstName) \(lastName)"
             cell?.detailTextLabel?.text = "\(mediaURL)"
-            selectedCell.append(cell!)
+            userCell.append(cell!)
         }
-        
         return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let app = UIApplication.shared
-        if let toOpen = selectedCell[indexPath.row].detailTextLabel?.text {
+        if let toOpen = userCell[indexPath.row].detailTextLabel?.text {
             if let url = URL(string: toOpen) {
+                let app = UIApplication.shared
                 app.open(url, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
             }
         }

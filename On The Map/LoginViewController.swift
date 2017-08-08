@@ -18,6 +18,10 @@ class LoginViewController: UIViewController, JSONParsable {
     var connection: CConnection?
     var response: LoginData?
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let delegate  = UIApplication.shared.delegate as! AppDelegate

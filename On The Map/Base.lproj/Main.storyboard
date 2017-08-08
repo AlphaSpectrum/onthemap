@@ -147,7 +147,7 @@
                     <navigationItem key="navigationItem" title="Add Location" id="1EB-fg-ak9">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Buq-Mq-pRx">
                             <connections>
-                                <action selector="cancel:" destination="2PD-sp-cyx" id="4Pl-7k-SdZ"/>
+                                <action selector="cancel:" destination="2PD-sp-cyx" id="FRv-yS-Wyh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="hP5-uD-DTv"/>
