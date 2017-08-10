@@ -18,17 +18,15 @@ class PostViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
-    let header = [
-        Constants.Key.api : Constants.Value.api,
-        Constants.Key.parse : Constants.Value.parse
-    ]
     
+    var header: [String : String]?
     var connection: CConnection?
     var selectedPin: MKPlacemark?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
+        header = delegate.header
         selectedPin = delegate.selectedPin
     }
     
@@ -44,13 +42,12 @@ class PostViewController: UIViewController {
             let studentAddress = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: studentCoordinates)
             let student = StudentInformation(uniqueKey: "9482084", firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, address: studentAddress, mediaURL: mediaURLTextField.text!)
             let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
-            var headers = header
-            headers["Content-Type"] = "application/json"
+            header?["Content-Type"] = "application/json"
             let httpBody = convertStudentStructToJSON(student)
             
             print(httpBody)
             
-            connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
+            connection?.connect(to: url!, httpHeaders: header, method: .post, httpBody: httpBody) {
                 data, success, error in
                 print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
                 self.dismiss(animated: true, completion: nil)
@@ -66,6 +63,7 @@ class PostViewController: UIViewController {
         return studentJSONData
     }
     
+    /*
     private func postStudentData(_ student: StudentInformation) {
         let coordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
         let location = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: coordinates)
@@ -81,6 +79,6 @@ class PostViewController: UIViewController {
             data, success, error in
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
         }
-    }
+    }*/
     
 }

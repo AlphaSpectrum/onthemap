@@ -15,9 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var authResponse: LoginData?
     var userArray: [[String : AnyObject]]?
-    
     var selectedPin: MKPlacemark? = nil
+    
     let connection = CConnection()
+    let header = [
+        Constants.Key.api : Constants.Value.api,
+        Constants.Key.parse : Constants.Value.parse
+    ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

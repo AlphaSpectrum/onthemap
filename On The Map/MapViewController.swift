@@ -17,13 +17,9 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     //let locationManager = CLLocationManager()
     
-    let header = [
-        Constants.Key.api : Constants.Value.api,
-        Constants.Key.parse : Constants.Value.parse
-    ]
-    
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
+    var header: [String : String]?
     var alertShown = false
     var annotations = [MKPointAnnotation]()
     var connection: CConnection?
@@ -39,6 +35,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
+        header = delegate.header
         postButton.alpha = 0.7
         postButton.isHidden = true
         configureSearchBar()
@@ -129,7 +126,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
             annotationView!.tintColor = .green
             annotationView!.canShowCallout = true
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            annotationView?.animatesDrop = true
+            //annotationView?.animatesDrop = true
         } else {
             annotationView!.annotation = annotation
         }
