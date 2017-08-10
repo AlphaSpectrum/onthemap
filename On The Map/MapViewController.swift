@@ -12,6 +12,7 @@ import MapKit
 class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, JSONParsable {
     
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var revealSearchPinButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     
     //let locationManager = CLLocationManager()
@@ -43,6 +44,11 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         configureSearchBar()
     }
     
+    @IBAction func revealSearchBar(_ sender: Any) {
+        searchBar?.isHidden = false
+        searchBar?.becomeFirstResponder()
+    }
+
     private func configureSearchBar() {
         let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -56,6 +62,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
+        searchBar?.isHidden = true
     }
     
     private func dropMultiplePins(using jsonData: [[String : AnyObject]]) {

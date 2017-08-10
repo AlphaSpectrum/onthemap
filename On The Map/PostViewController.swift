@@ -52,7 +52,6 @@ class PostViewController: UIViewController {
             
             connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
                 data, success, error in
-                print(error)
                 print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
                 self.dismiss(animated: true, completion: nil)
             }
