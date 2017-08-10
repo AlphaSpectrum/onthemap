@@ -112,7 +112,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
                 }
             }  else {
                 performUIUpdatesOnMain {
-                    self.alertUserOfError(title: "Error", message: error!, actionName: "OK", completion: {
+                    self.alertUser(title: "Error", message: error!, actionName: "OK", completion: {
                         self.refreshMap()
                     })
                 }
@@ -186,7 +186,7 @@ extension HandleMapSearch where Self : MapViewController {
 }
 
 extension MapViewController: UserAlertable {
-    internal func alertUserOfError(title: String, message: String, actionName: String, completion: WithFunction) {
+    func alertUser(title: String, message: String, actionName: String, completion: UserAlertable.WithFunction?) {
         if !alertShown {
             
             // Set alertShown to true so we notify the user only once
@@ -195,9 +195,9 @@ extension MapViewController: UserAlertable {
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: actionName, style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            completion()
+            completion!()
         } else {
-            completion()
+            completion!()
         }
     }
 }

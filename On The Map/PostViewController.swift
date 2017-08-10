@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UserAlertable {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -48,12 +48,13 @@ class PostViewController: UIViewController {
             connection?.connect(to: url!, httpHeaders: header, method: .post, httpBody: httpBody) {
                 data, success, error in
                 
-                if success! {
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    performUIUpdatesOnMain {
+                performUIUpdatesOnMain {
+                    if success! {
+                        self.alertUser(title: "Posted!", message: "Your information has been posted successfully.", actionName: "OK", completion: nil)
+                    } else {
                         self.warningLabel.text = error
                     }
+                    
                 }
             }
         }
@@ -62,5 +63,14 @@ class PostViewController: UIViewController {
     private func convertStudentStructToJSON(_ user: StudentInformation) -> String {
         let studentJSONData = "{\"uniqueKey\": \"\(user.uniqueKey)\", \"firstName\": \"\(user.firstName)\", \"lastName\": \"\(user.lastName)\",\"mapString\": \"\(user.address.city), \(user.address.state)\", \"mediaURL\": \"\(user.mediaURL)\",\"latitude\": \(user.address.coordinates.latitude), \"longitude\": \(user.address.coordinates.longitude)}"
         return studentJSONData
+    }
+    
+    func alertUser(title: String, message: String, actionName: String, completion: UserAlertable.WithFunction?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: actionName, style: UIAlertActionStyle.default, handler: {
+            action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

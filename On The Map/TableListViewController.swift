@@ -18,15 +18,12 @@ class TableListViewController: UITableViewController {
     var userCell = [UITableViewCell]()
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        users = delegate.userArray
     }
     
     override func viewDidLoad() {
-        self.tableView.reloadData()
-
         super.viewDidLoad()
-        
-        connection = delegate.connection
-        users = delegate.userArray
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
