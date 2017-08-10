@@ -19,7 +19,7 @@ struct Location {
     var coordinates: Coordinates
 }
 
-struct Student {
+struct StudentInformation {
     var uniqueKey: String
     var firstName: String
     var lastName: String
