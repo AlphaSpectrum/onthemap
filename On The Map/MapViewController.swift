@@ -19,7 +19,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     var header: [String : String]?
     var alertShown = false
-    var annotations = [MKPointAnnotation]()
+    //var annotations = [MKPointAnnotation]()
+    var annotations: [MKPointAnnotation]?
     var connection: CConnection?
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
@@ -62,6 +63,10 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     
     private func dropMultiplePins(using jsonData: [[String : AnyObject]]) {
         let results = jsonData
+        if annotations != nil {
+            mapView.removeAnnotations(annotations!)
+        }
+        var annotationsTemporaryHolder = [MKPointAnnotation]()
         for result in results {
             if let lat = result["latitude"] as? Double,
                 let long = result["longitude"] as? Double,
@@ -72,7 +77,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
                 annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 annotation.title = "\(first) \(last)"
                 annotation.subtitle = mediaURL
-                annotations.append(annotation)
+                annotationsTemporaryHolder.append(annotation)
             }
         }
         if selectedPin != nil {
@@ -80,7 +85,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
             let region = MKCoordinateRegionMake((selectedPin?.coordinate)!, span)
             mapView.setRegion(region, animated: true)
         }
-        mapView.addAnnotations(annotations)
+        annotations = annotationsTemporaryHolder
+        mapView.addAnnotations(annotations!)
     }
     
     private func refreshMap() {

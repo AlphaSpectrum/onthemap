@@ -45,21 +45,22 @@ class PostViewController: UIViewController {
             header?["Content-Type"] = "application/json"
             let httpBody = convertStudentStructToJSON(student)
             
-            print(httpBody)
-            
             connection?.connect(to: url!, httpHeaders: header, method: .post, httpBody: httpBody) {
                 data, success, error in
-                print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
-                self.dismiss(animated: true, completion: nil)
+                
+                if success! {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    performUIUpdatesOnMain {
+                        self.warningLabel.text = error
+                    }
+                }
             }
-            
         }
-        
     }
     
     private func convertStudentStructToJSON(_ user: StudentInformation) -> String {
         let studentJSONData = "{\"uniqueKey\": \"\(user.uniqueKey)\", \"firstName\": \"\(user.firstName)\", \"lastName\": \"\(user.lastName)\",\"mapString\": \"\(user.address.city), \(user.address.state)\", \"mediaURL\": \"\(user.mediaURL)\",\"latitude\": \(user.address.coordinates.latitude), \"longitude\": \(user.address.coordinates.longitude)}"
-        
         return studentJSONData
     }
 }
