@@ -186,7 +186,7 @@ extension HandleMapSearch where Self : MapViewController {
 }
 
 extension MapViewController: UserAlertable {
-    internal func alertUserOfError(title: String, message: String, actionName: String, completion: WithFunc) {
+    internal func alertUserOfError(title: String, message: String, actionName: String, completion: WithFunction) {
         if !alertShown {
             
             // Set alertShown to true so we notify the user only once
