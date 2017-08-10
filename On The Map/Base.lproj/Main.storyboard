@@ -142,7 +142,58 @@
                     <view key="view" contentMode="scaleToFill" id="hfs-H3-WPd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XuW-t0-A6p">
+                                <rect key="frame" x="16" y="64" width="288" height="150"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lSZ-14-Fr4" userLabel="First Name Text Field">
+                                        <rect key="frame" x="8" y="40" width="272" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uft-3P-hi1" userLabel="First Name Label">
+                                        <rect key="frame" x="8" y="18" width="73" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnu-rc-PIL" userLabel="Last Name Label">
+                                        <rect key="frame" x="8" y="80" width="71.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQE-SZ-6jo">
+                                        <rect key="frame" x="8" y="107" width="272" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="MQE-SZ-6jo" secondAttribute="trailing" id="Cvf-X7-pGC"/>
+                                    <constraint firstItem="Uft-3P-hi1" firstAttribute="top" secondItem="XuW-t0-A6p" secondAttribute="topMargin" constant="10" id="LEO-W7-nBV"/>
+                                    <constraint firstItem="lSZ-14-Fr4" firstAttribute="top" secondItem="Uft-3P-hi1" secondAttribute="bottom" constant="5" id="VxX-AS-R9B"/>
+                                    <constraint firstItem="MQE-SZ-6jo" firstAttribute="top" secondItem="nnu-rc-PIL" secondAttribute="bottom" constant="10" id="Xmf-Cm-ZKT"/>
+                                    <constraint firstItem="MQE-SZ-6jo" firstAttribute="leading" secondItem="XuW-t0-A6p" secondAttribute="leadingMargin" id="k3W-zP-97m"/>
+                                    <constraint firstItem="nnu-rc-PIL" firstAttribute="top" secondItem="lSZ-14-Fr4" secondAttribute="bottom" constant="10" id="kHF-Il-wdq"/>
+                                    <constraint firstItem="Uft-3P-hi1" firstAttribute="leading" secondItem="XuW-t0-A6p" secondAttribute="leadingMargin" id="mFV-JA-vmy"/>
+                                    <constraint firstItem="lSZ-14-Fr4" firstAttribute="trailing" secondItem="XuW-t0-A6p" secondAttribute="trailingMargin" id="n2f-Pj-wEk"/>
+                                    <constraint firstAttribute="height" constant="150" id="sh2-X8-3vC"/>
+                                    <constraint firstItem="nnu-rc-PIL" firstAttribute="leading" secondItem="XuW-t0-A6p" secondAttribute="leadingMargin" id="w5u-SC-elq"/>
+                                    <constraint firstItem="lSZ-14-Fr4" firstAttribute="leading" secondItem="XuW-t0-A6p" secondAttribute="leadingMargin" id="y6i-2X-Le1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XuW-t0-A6p" firstAttribute="centerX" secondItem="hfs-H3-WPd" secondAttribute="centerX" id="Fqb-a8-sER"/>
+                            <constraint firstItem="XuW-t0-A6p" firstAttribute="leading" secondItem="hfs-H3-WPd" secondAttribute="leadingMargin" id="Psr-jR-2fq"/>
+                            <constraint firstItem="XuW-t0-A6p" firstAttribute="top" secondItem="hKn-jL-3sg" secondAttribute="bottom" id="QsT-kQ-rTL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XuW-t0-A6p" secondAttribute="trailing" id="TSP-Tw-MqO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="1EB-fg-ak9">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Buq-Mq-pRx">
@@ -150,7 +201,7 @@
                                 <action selector="cancel:" destination="2PD-sp-cyx" id="FRv-yS-Wyh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="hP5-uD-DTv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" style="done" id="hP5-uD-DTv"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
@@ -180,7 +231,7 @@
                                 <rect key="frame" x="137" y="375" width="46" height="46"/>
                                 <state key="normal" image="Post Icon"/>
                                 <connections>
-                                    <action selector="testPost:" destination="ufd-l8-eHh" eventType="touchUpInside" id="XsR-2k-YGQ"/>
+                                    <segue destination="8AZ-qV-Fgb" kind="presentation" id="rvo-R4-iQk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -197,7 +248,7 @@
                     <navigationItem key="navigationItem" id="YfT-EH-0RW"/>
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
-                        <outlet property="postButton" destination="aA8-vA-a6T" id="Kxe-Xy-0WH"/>
+                        <outlet property="postButton" destination="aA8-vA-a6T" id="GbR-P4-FyT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbv-ZS-Kq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,7 +411,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QOh-Dz-Tj9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8AZ-qV-Fgb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8AZ-qV-Fgb" customClass="NavigationController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zeP-zx-byr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -142,7 +142,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         }
     }
     
-    @IBAction func testPost(_ sender: Any) {
+    func postStudentData(_ student: Student) {
         let coordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
         let location = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: coordinates)
         let student = Student(uniqueKey: "1294850", firstName: "John", lastName: "Doe", address: location, mediaURL: "https://theverge.com")

@@ -18,11 +18,13 @@ class TableListViewController: UITableViewController {
     var userCell = [UITableViewCell]()
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
+        self.tableView.reloadData()
+
         super.viewDidLoad()
+        
         connection = delegate.connection
         users = delegate.userArray
     }
