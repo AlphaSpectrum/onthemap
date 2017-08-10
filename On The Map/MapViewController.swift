@@ -151,7 +151,9 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         }
     }
     
-    func postStudentData(_ student: Student) {
+    /*
+    
+    func postStudentData() {
         let coordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
         let location = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: coordinates)
         let student = Student(uniqueKey: "1294850", firstName: "John", lastName: "Doe", address: location, mediaURL: "https://theverge.com")
@@ -162,10 +164,10 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         let httpBody = convertStudentStructToJSON(student)
         print(httpBody)
         
-        connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
+        /*connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
             data, success, error in
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
-        }
+        }*/
     }
     
     func convertStudentStructToJSON(_ user: Student) -> String {
@@ -173,6 +175,8 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
 
         return studentJSONData
     }
+ */
+    
     @IBAction func postStudentLocation(_ sender: Any) {
         delegate.selectedPin = selectedPin
         performSegue(withIdentifier: "PostViewSegue", sender: nil)
