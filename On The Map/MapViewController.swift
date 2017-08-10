@@ -14,9 +14,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var revealSearchPinButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
-    
-    //let locationManager = CLLocationManager()
-    
+        
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
     var header: [String : String]?
@@ -149,18 +147,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
                     }
                 }
             }
-            
-            
-            // Simplify this code in (simplification above)
-            /*if selectedPin != nil {
-            } else {
-                let app = UIApplication.shared
-                if let toOpen = view.annotation?.subtitle! {
-                    if let url = URL(string: toOpen) {
-                        app.open(url, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
-                    }
-                }
-            }*/
         }
     }
     
@@ -210,27 +196,5 @@ extension MapViewController: UserAlertable {
     }
 }
 
-/*
- extension MapViewController : CLLocationManagerDelegate {
- func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
- if status == .authorizedWhenInUse {
- //locationManager.requestLocation()
- }
- }
- 
- func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
- if let location = locations.first {
- currentLocation = location
- let span = MKCoordinateSpanMake(150.0, 150.0)
- let region = MKCoordinateRegion(center: location.coordinate, span: span)
- mapView.setRegion(region, animated: true)
- }
- }
- 
- func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
- print("error:  \(error)")
- }
- }
- */
 
 

@@ -62,23 +62,4 @@ class PostViewController: UIViewController {
         
         return studentJSONData
     }
-    
-    /*
-    private func postStudentData(_ student: StudentInformation) {
-        let coordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
-        let location = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: coordinates)
-        let student = StudentInformation(uniqueKey: "1294850", firstName: "John", lastName: "Doe", address: location, mediaURL: "https://theverge.com")
-        let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
-        var headers = header
-        headers["Content-Type"] = "application/json"
-        
-        let httpBody = convertStudentStructToJSON(student)
-        print(httpBody)
-        
-        connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
-            data, success, error in
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
-        }
-    }*/
-    
 }
