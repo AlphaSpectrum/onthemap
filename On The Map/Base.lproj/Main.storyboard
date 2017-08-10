@@ -134,7 +134,7 @@
         <!--Add Location-->
         <scene sceneID="OKe-x1-GGa">
             <objects>
-                <viewController title="Add Location" id="2PD-sp-cyx" customClass="PostViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" title="Add Location" id="2PD-sp-cyx" customClass="PostViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hKn-jL-3sg"/>
                         <viewControllerLayoutGuide type="bottom" id="IX1-68-YK2"/>
@@ -201,9 +201,17 @@
                                 <action selector="cancel:" destination="2PD-sp-cyx" id="FRv-yS-Wyh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Post" style="done" id="hP5-uD-DTv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" style="done" id="hP5-uD-DTv">
+                            <connections>
+                                <action selector="postStudentLocation:" destination="2PD-sp-cyx" id="b9e-2N-jdy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="firstNameTextField" destination="lSZ-14-Fr4" id="miT-Mk-pni"/>
+                        <outlet property="lastNameTextField" destination="MQE-SZ-6jo" id="bW0-s3-NCj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwp-bz-Hfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,7 +239,7 @@
                                 <rect key="frame" x="137" y="375" width="46" height="46"/>
                                 <state key="normal" image="Post Icon"/>
                                 <connections>
-                                    <segue destination="8AZ-qV-Fgb" kind="presentation" id="rvo-R4-iQk"/>
+                                    <action selector="postStudentLocation:" destination="ufd-l8-eHh" eventType="touchUpInside" id="xDw-RH-0lh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,6 +257,7 @@
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
                         <outlet property="postButton" destination="aA8-vA-a6T" id="GbR-P4-FyT"/>
+                        <segue destination="8AZ-qV-Fgb" kind="presentation" identifier="PostViewSegue" id="EHO-qJ-HaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbv-ZS-Kq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,6 +420,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QOh-Dz-Tj9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0q2-74-sv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8AZ-qV-Fgb" customClass="NavigationController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zeP-zx-byr">
@@ -422,7 +432,6 @@
                         <segue destination="2PD-sp-cyx" kind="relationship" relationship="rootViewController" id="feE-HC-rAg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0q2-74-sv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1906.875" y="200"/>
         </scene>

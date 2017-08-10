@@ -164,6 +164,14 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
 
         return studentJSONData
     }
+    @IBAction func postStudentLocation(_ sender: Any) {
+        //let postViewController = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+        //postViewController.selectedPin = selectedPin
+        delegate.selectedPin = selectedPin
+        performSegue(withIdentifier: "PostViewSegue", sender: nil)
+        //present(postViewController, animated: true, completion: nil)
+        //navigationController?.performSegue(withIdentifier: "PostViewController", sender: nil)
+    }
 }
 
 extension HandleMapSearch where Self : MapViewController {

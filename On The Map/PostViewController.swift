@@ -8,14 +8,28 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class PostViewController: UIViewController {
     
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    var selectedPin: MKPlacemark?
+    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedPin = delegate.selectedPin
     }
     
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func postStudentLocation(_ sender: Any) {
+        
+    }
+    
 }
