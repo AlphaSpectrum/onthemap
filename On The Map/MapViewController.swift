@@ -34,7 +34,7 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = delegate.connection
-        //postButton.isHidden = true
+        postButton.isHidden = true
         configureSearchBar()
         loadMapUsers()
     }
@@ -143,16 +143,26 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     }
     
     @IBAction func testPost(_ sender: Any) {
+        let coordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
+        let location = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: coordinates)
+        let student = Student(uniqueKey: "1294850", firstName: "John", lastName: "Doe", address: location, mediaURL: "https://theverge.com")
         let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
         var headers = header
         headers["Content-Type"] = "application/json"
         
-        let httpBody = "{\"uniqueKey\": \"2345345\", \"firstName\": \"Alan\", \"lastName\": \"Campos\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}"
+        let httpBody = convertStudentStructToJSON(student)
+        print(httpBody)
         
         connection?.connect(to: url!, httpHeaders: headers, method: .post, httpBody: httpBody) {
             data, success, error in
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "")
         }
+    }
+    
+    func convertStudentStructToJSON(_ user: Student) -> String {
+        let studentJSONData = "{\"uniqueKey\": \"\(user.uniqueKey)\", \"firstName\": \"\(user.firstName)\", \"lastName\": \"\(user.lastName)\",\"mapString\": \"\(user.address.city), \(user.address.state)\", \"mediaURL\": \"\(user.mediaURL)\",\"latitude\": \(user.address.coordinates.latitude), \"longitude\": \(user.address.coordinates.longitude)}"
+
+        return studentJSONData
     }
 }
 

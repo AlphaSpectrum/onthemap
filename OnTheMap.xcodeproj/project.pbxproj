@@ -185,8 +185,8 @@
 		FAD3875F1F1E376800681A9F /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
-				FAD387601F1E376800681A9F /* AppDelegate.swift */,
 				FAD387641F1E376800681A9F /* Main.storyboard */,
+				FAD387601F1E376800681A9F /* AppDelegate.swift */,
 				FA972C6A1F27BF44001D06FA /* GDCBlackBox.swift */,
 				FAD3878E1F1E3A2200681A9F /* Constants.swift */,
 				FABE8DE41F277DAC0015DB9E /* View Controllers */,

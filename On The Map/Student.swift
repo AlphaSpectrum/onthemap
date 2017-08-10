@@ -9,19 +9,20 @@
 import Foundation
 
 struct Coordinates {
-    var latitude: Double?
-    var longitude: Double?
+    var latitude: Double
+    var longitude: Double
 }
 
 struct Location {
-    var city: String?
-    var state: String?
-    var coordinates: Coordinates?
+    var city: String
+    var state: String
+    var coordinates: Coordinates
 }
 
 struct Student {
-    var firstName: String?
-    var lastName: String?
-    var address: Location?
-    var mediaURL: String?
+    var uniqueKey: String
+    var firstName: String
+    var lastName: String
+    var address: Location
+    var mediaURL: String
 }

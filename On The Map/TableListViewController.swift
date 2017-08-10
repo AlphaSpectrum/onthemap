@@ -18,7 +18,7 @@ class TableListViewController: UITableViewController {
     var userCell = [UITableViewCell]()
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
     
     override func viewDidLoad() {

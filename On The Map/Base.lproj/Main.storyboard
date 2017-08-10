@@ -180,7 +180,7 @@
                                 <rect key="frame" x="137" y="375" width="46" height="46"/>
                                 <state key="normal" image="Post Icon"/>
                                 <connections>
-                                    <segue destination="8AZ-qV-Fgb" kind="presentation" id="EmZ-hy-aKk"/>
+                                    <action selector="testPost:" destination="ufd-l8-eHh" eventType="touchUpInside" id="XsR-2k-YGQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -197,7 +197,7 @@
                     <navigationItem key="navigationItem" id="YfT-EH-0RW"/>
                     <connections>
                         <outlet property="mapView" destination="cjF-3K-hHG" id="E8z-hQ-7zW"/>
-                        <outlet property="postButton" destination="aA8-vA-a6T" id="iSs-G3-olc"/>
+                        <outlet property="postButton" destination="aA8-vA-a6T" id="Kxe-Xy-0WH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbv-ZS-Kq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
