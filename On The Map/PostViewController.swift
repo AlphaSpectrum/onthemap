@@ -15,9 +15,9 @@ class PostViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     
-    var selectedPin: MKPlacemark?
-    
     let delegate = UIApplication.shared.delegate as! AppDelegate
+
+    var selectedPin: MKPlacemark?
     
     override func viewDidLoad() {
         super.viewDidLoad()

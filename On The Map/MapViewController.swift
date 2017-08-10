@@ -126,12 +126,9 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //view.image = #imageLiteral(resourceName: "pin")
         if control == view.rightCalloutAccessoryView {
             
-            if selectedPin != nil {
-                //view.image = #imageLiteral(resourceName: "pin")
-            } else {
+            if selectedPin == nil {
                 let app = UIApplication.shared
                 if let toOpen = view.annotation?.subtitle! {
                     if let url = URL(string: toOpen) {
@@ -139,6 +136,18 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
                     }
                 }
             }
+            
+            
+            // Simplify this code in (simplification above)
+            /*if selectedPin != nil {
+            } else {
+                let app = UIApplication.shared
+                if let toOpen = view.annotation?.subtitle! {
+                    if let url = URL(string: toOpen) {
+                        app.open(url, options: [UIApplicationOpenURLOptionUniversalLinksOnly: toOpen]) { _ in }
+                    }
+                }
+            }*/
         }
     }
     
@@ -165,20 +174,18 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         return studentJSONData
     }
     @IBAction func postStudentLocation(_ sender: Any) {
-        //let postViewController = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
-        //postViewController.selectedPin = selectedPin
         delegate.selectedPin = selectedPin
         performSegue(withIdentifier: "PostViewSegue", sender: nil)
-        //present(postViewController, animated: true, completion: nil)
-        //navigationController?.performSegue(withIdentifier: "PostViewController", sender: nil)
     }
 }
 
 extension HandleMapSearch where Self : MapViewController {
     func dropPin(zoom inPlacemark: MKPlacemark, completionHandler: @escaping (_ button: UIButton) -> Void) {
         selectedPin = inPlacemark
+        
         //clear existing pins
         mapView.removeAnnotations(mapView.annotations)
+        
         let annotation = MKPointAnnotation()
         annotation.coordinate = inPlacemark.coordinate
         annotation.title = inPlacemark.name
