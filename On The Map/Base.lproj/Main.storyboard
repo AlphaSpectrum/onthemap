@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -281,6 +281,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YfT-EH-0RW">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="jMW-Pb-3bn">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logout:" destination="ufd-l8-eHh" id="1BR-RO-lbd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="pin" id="puZ-TD-uYk">
                             <connections>
                                 <action selector="revealSearchBar:" destination="ufd-l8-eHh" id="CJT-s2-eRd"/>
@@ -421,7 +427,14 @@
                             <outlet property="delegate" destination="NLu-xP-zPS" id="GsH-V3-Hg8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Member List" id="WUE-Jx-qgH"/>
+                    <navigationItem key="navigationItem" title="Member List" id="WUE-Jx-qgH">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Yj1-Gc-2h7">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logout:" destination="NLu-xP-zPS" id="PDC-ah-R5G"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QW4-j7-MRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -45,6 +45,18 @@ class MapViewController : UIViewController, MKMapViewDelegate, HandleMapSearch, 
         searchBar?.becomeFirstResponder()
     }
 
+    @IBAction func logout(_ sender: Any) {
+        connection?.logout(url: URL(string: "https://www.udacity.com/api/session")!) {
+            success, error in
+            performUIUpdatesOnMain {
+                if success! {
+                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self.present(loginViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     private func configureSearchBar() {
         let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "LocationSearchTableViewController") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)

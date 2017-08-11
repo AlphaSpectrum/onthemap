@@ -40,7 +40,8 @@ class PostViewController: UIViewController, UserAlertable {
         } else {
             let studentCoordinates = Coordinates(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!)
             let studentAddress = Location(city: (selectedPin?.locality)!, state: (selectedPin?.administrativeArea)!, coordinates: studentCoordinates)
-            let student = StudentInformation(uniqueKey: "9482084", firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, address: studentAddress, mediaURL: mediaURLTextField.text!)
+            let student = StudentInformation(uniqueKey: (delegate.loginResponse?.accountKey)!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, address: studentAddress, mediaURL: mediaURLTextField.text!)
+            
             let url = connection?.formatAsURL(scheme: Constants.URL.scheme, host: Constants.URL.host, path: Constants.URL.path, query: nil)
             header?["Content-Type"] = "application/json"
             let httpBody = convertStudentStructToJSON(student)

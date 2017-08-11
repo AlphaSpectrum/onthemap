@@ -26,6 +26,18 @@ class TableListViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func logout(_ sender: Any) {
+        connection?.logout(url: URL(string: "https://www.udacity.com/api/session")!) {
+            success, error in
+            performUIUpdatesOnMain {
+                if success! {
+                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self.present(loginViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let user = users?.count {
             return user
