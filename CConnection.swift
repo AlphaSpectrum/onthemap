@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CConnection: ConnectionHandler {
+class CConnection: ConnectionHandler {
         
     func connect(to url: URL) {
         performConnection(url: url, httpHeaders: nil, method: .get, httpBody: nil) { _ in }

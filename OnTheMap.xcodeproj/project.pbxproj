@@ -10,6 +10,7 @@
 		FA4178521F26CA4F00B81F12 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4178511F26CA4F00B81F12 /* Login.swift */; };
 		FA4A6CCC1F338DEF00295461 /* CConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A6CCB1F338DEF00295461 /* CConnection.swift */; };
 		FA51347D1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */; };
+		FA7813AF1F3D653800C423F3 /* UConnectionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7813AE1F3D653800C423F3 /* UConnectionClient.swift */; };
 		FA88A2DE1F39529C00154A73 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88A2DD1F39529C00154A73 /* PostViewController.swift */; };
 		FA94C8921F34B1DA00C8B409 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94C8911F34B1DA00C8B409 /* Student.swift */; };
 		FA972C691F27B972001D06FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA972C681F27B972001D06FA /* MapViewController.swift */; };
@@ -52,6 +53,7 @@
 		FA4178511F26CA4F00B81F12 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = "On The Map/Login.swift"; sourceTree = "<group>"; };
 		FA4A6CCB1F338DEF00295461 /* CConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CConnection.swift; sourceTree = "<group>"; };
 		FA51347C1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		FA7813AE1F3D653800C423F3 /* UConnectionClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UConnectionClient.swift; sourceTree = "<group>"; };
 		FA88A2DD1F39529C00154A73 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FA94C8911F34B1DA00C8B409 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = "On The Map/Student.swift"; sourceTree = "<group>"; };
 		FA972C681F27B972001D06FA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4A6CCB1F338DEF00295461 /* CConnection.swift */,
+				FA7813AE1F3D653800C423F3 /* UConnectionClient.swift */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				FAD3878F1F1E3A2200681A9F /* Constants.swift in Sources */,
 				FAA5EC371F33559200FE8479 /* JSONParsable.swift in Sources */,
 				FA51347D1F2D5C6F001E18E5 /* LocationSearchTableViewController.swift in Sources */,
+				FA7813AF1F3D653800C423F3 /* UConnectionClient.swift in Sources */,
 				FA4A6CCC1F338DEF00295461 /* CConnection.swift in Sources */,
 				FAED39091F3BF0EC00BBEA1B /* NavigationController.swift in Sources */,
 				FAD387631F1E376800681A9F /* LoginViewController.swift in Sources */,

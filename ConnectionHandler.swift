@@ -14,3 +14,10 @@ protocol ConnectionHandler {
     func performConnection(url: URL, httpHeaders: [String : String]?, method: RequestMethod, httpBody: String?, completionHandler: @escaping (_ data: Data?, _ sucess: Bool?, _ error: String?) -> Void)
     func formatAsURL(scheme: String?, host: String?, path: String?, query: String?) -> URL
 }
+
+protocol ConnectionManager {
+    func performConnection(url: URL, httpHeaders: [String : String]?, method: RequestMethod, httpBody: String?, completionHandler: @escaping (_ data: Data?, _ sucess: Bool?, _ error: String?) -> Void)
+    func createURLFromParameters(_ parameters: [String : AnyObject], withPathExtension: String?) -> URL
+    func authenticate()
+    func getStudents()
+}
