@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		FA9567261F3DD65F00E7E681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567251F3DD65F00E7E681 /* AppDelegate.swift */; };
-		FA9567281F3DD65F00E7E681 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567271F3DD65F00E7E681 /* ViewController.swift */; };
 		FA95672B1F3DD65F00E7E681 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9567291F3DD65F00E7E681 /* Main.storyboard */; };
 		FA95672E1F3DD65F00E7E681 /* The_Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA95672C1F3DD65F00E7E681 /* The_Map.xcdatamodeld */; };
 		FA9567301F3DD65F00E7E681 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA95672F1F3DD65F00E7E681 /* Assets.xcassets */; };
 		FA9567331F3DD65F00E7E681 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9567311F3DD65F00E7E681 /* LaunchScreen.storyboard */; };
+		FA95673B1F3DD69900E7E681 /* ConnectionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95673A1F3DD69900E7E681 /* ConnectionClient.swift */; };
+		FA95673D1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95673C1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift */; };
+		FA95673F1F3DD8B200E7E681 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95673E1F3DD8B200E7E681 /* Constants.swift */; };
+		FA9567441F3DD95500E7E681 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567431F3DD95500E7E681 /* LoginViewController.swift */; };
+		FA9567471F3DDA1300E7E681 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567461F3DDA1300E7E681 /* StudentInformation.swift */; };
+		FA9567491F3DDB4800E7E681 /* JSONParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567481F3DDB4800E7E681 /* JSONParsable.swift */; };
+		FA95674B1F3DDBB300E7E681 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95674A1F3DDBB300E7E681 /* RequestHandler.swift */; };
+		FA95674D1F3DDD1500E7E681 /* UConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95674C1F3DDD1500E7E681 /* UConnectionConfig.swift */; };
+		FA9567511F3E013500E7E681 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567501F3E013500E7E681 /* Authentication.swift */; };
+		FA9567531F3E23BE00E7E681 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567521F3E23BE00E7E681 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA9567221F3DD65F00E7E681 /* The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9567251F3DD65F00E7E681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA9567271F3DD65F00E7E681 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA95672A1F3DD65F00E7E681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA95672D1F3DD65F00E7E681 /* The_Map.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Map.xcdatamodel; sourceTree = "<group>"; };
 		FA95672F1F3DD65F00E7E681 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9567321F3DD65F00E7E681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9567341F3DD65F00E7E681 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA95673A1F3DD69900E7E681 /* ConnectionClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionClient.swift; sourceTree = "<group>"; };
+		FA95673C1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionClientRequestMethod.swift; sourceTree = "<group>"; };
+		FA95673E1F3DD8B200E7E681 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA9567431F3DD95500E7E681 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA9567461F3DDA1300E7E681 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
+		FA9567481F3DDB4800E7E681 /* JSONParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParsable.swift; sourceTree = "<group>"; };
+		FA95674A1F3DDBB300E7E681 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		FA95674C1F3DDD1500E7E681 /* UConnectionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UConnectionConfig.swift; sourceTree = "<group>"; };
+		FA9567501F3E013500E7E681 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		FA9567521F3E23BE00E7E681 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +75,55 @@
 			isa = PBXGroup;
 			children = (
 				FA9567251F3DD65F00E7E681 /* AppDelegate.swift */,
-				FA9567271F3DD65F00E7E681 /* ViewController.swift */,
 				FA9567291F3DD65F00E7E681 /* Main.storyboard */,
+				FA9567451F3DD97600E7E681 /* Controllers */,
+				FA9567421F3DD8F300E7E681 /* API */,
+				FA9567411F3DD8DF00E7E681 /* Model */,
+				FA9567401F3DD8C700E7E681 /* Dist */,
 				FA95672F1F3DD65F00E7E681 /* Assets.xcassets */,
 				FA9567311F3DD65F00E7E681 /* LaunchScreen.storyboard */,
 				FA9567341F3DD65F00E7E681 /* Info.plist */,
 				FA95672C1F3DD65F00E7E681 /* The_Map.xcdatamodeld */,
 			);
 			path = "The Map";
+			sourceTree = "<group>";
+		};
+		FA9567401F3DD8C700E7E681 /* Dist */ = {
+			isa = PBXGroup;
+			children = (
+				FA95674A1F3DDBB300E7E681 /* RequestHandler.swift */,
+				FA95673C1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift */,
+				FA9567481F3DDB4800E7E681 /* JSONParsable.swift */,
+			);
+			name = Dist;
+			sourceTree = "<group>";
+		};
+		FA9567411F3DD8DF00E7E681 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA95673E1F3DD8B200E7E681 /* Constants.swift */,
+				FA9567461F3DDA1300E7E681 /* StudentInformation.swift */,
+				FA9567521F3E23BE00E7E681 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FA9567421F3DD8F300E7E681 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FA9567501F3E013500E7E681 /* Authentication.swift */,
+				FA95673A1F3DD69900E7E681 /* ConnectionClient.swift */,
+				FA95674C1F3DDD1500E7E681 /* UConnectionConfig.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		FA9567451F3DD97600E7E681 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA9567431F3DD95500E7E681 /* LoginViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +198,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9567281F3DD65F00E7E681 /* ViewController.swift in Sources */,
+				FA9567531F3E23BE00E7E681 /* User.swift in Sources */,
+				FA9567471F3DDA1300E7E681 /* StudentInformation.swift in Sources */,
+				FA9567441F3DD95500E7E681 /* LoginViewController.swift in Sources */,
+				FA9567491F3DDB4800E7E681 /* JSONParsable.swift in Sources */,
+				FA95673B1F3DD69900E7E681 /* ConnectionClient.swift in Sources */,
+				FA95673D1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift in Sources */,
+				FA9567511F3E013500E7E681 /* Authentication.swift in Sources */,
 				FA95672E1F3DD65F00E7E681 /* The_Map.xcdatamodeld in Sources */,
+				FA95674B1F3DDBB300E7E681 /* RequestHandler.swift in Sources */,
+				FA95674D1F3DDD1500E7E681 /* UConnectionConfig.swift in Sources */,
 				FA9567261F3DD65F00E7E681 /* AppDelegate.swift in Sources */,
+				FA95673F1F3DD8B200E7E681 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
