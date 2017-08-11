@@ -24,6 +24,7 @@ class TableListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        connection = delegate.connection
     }
     
     @IBAction func logout(_ sender: Any) {
