@@ -8,28 +8,32 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, JSONParsable {
+class LoginViewController: UIViewController, JSONParsable, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var warningLabel: UILabel!
     
-    var connection: CConnection?
-    var response: LoginData?
-    
+    let delegate  = UIApplication.shared.delegate as! AppDelegate
+
+    var connection: CConnection?    
+
     override var shouldAutorotate: Bool {
         return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let delegate  = UIApplication.shared.delegate as! AppDelegate
         connection = delegate.connection
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         warningLabel.text = ""
-        usernameTextField.text = "abcd"
-        passwordTextField.text = "123446"
-        login(self)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 
     @IBAction func login(_ sender: Any) {
@@ -49,13 +53,10 @@ class LoginViewController: UIViewController, JSONParsable {
             connection?.connect(to: url!, httpHeaders: requestHeaders, method: .post, httpBody: httpBody) {
                 data, success, error in
                 
-                let pass = true
-                // Bypass login window
-                // Don't forget to change pass back to success
                 performUIUpdatesOnMain {
-                    if pass {
+                    if success! {
                         if let data = data {
-                            self.response = LoginData(data: data)
+                            self.delegate.loginResponse = LoginData(data: data)
                         }
                         self.completeLogin()
                     } else {
@@ -65,7 +66,6 @@ class LoginViewController: UIViewController, JSONParsable {
             }
         }
     }
-    
     private func completeLogin() {
         self.performSegue(withIdentifier: "TabViewController", sender: nil)
     }

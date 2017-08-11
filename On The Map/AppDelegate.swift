@@ -13,7 +13,7 @@ import MapKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var authResponse: LoginData?
+    var loginResponse: LoginData?
     var userArray: [[String : AnyObject]]?
     var selectedPin: MKPlacemark? = nil
     

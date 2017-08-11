@@ -8,14 +8,19 @@
 
 import Foundation
 
-protocol LoginAuth {
+protocol Authentication {
     var data: Data? { get }
     var sessionID: String { get }
     var response: Data? { get }
 }
 
-struct LoginData: LoginAuth, JSONParsable {
+struct LoginData: Authentication, JSONParsable {
     var data: Data?
+    var accountKey: String {
+        let jsonObject = convertToJSON(data: response!)
+        let sessionDictionary = jsonObject["account"]
+        return sessionDictionary!["key"] as! String
+    }
     var sessionID: String {
         let jsonObject = convertToJSON(data: response!)
         let sessionDictionary = jsonObject["session"]
