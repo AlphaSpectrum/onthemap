@@ -18,7 +18,7 @@ class UConnectionConfig: ConnectionClient {
         Constants.Key.parse : Constants.Value.parse
     ]
     
-    func loginToUdacityAccount(username: String, password: String, completionHandler: @escaping (_ data: Authentication?, _ success: Bool?, _ error: Bool?) -> Void) {
+    func loginToUdacityAccount(username: String, password: String, completionHandler: @escaping (_ data: Authentication?, _ success: Bool?, _ error: String?) -> Void) {
         
         let url = URL(string: Constants.URL.login)
         
@@ -41,7 +41,7 @@ class UConnectionConfig: ConnectionClient {
                 
             } else {
                 
-                print("error")
+                completionHandler(nil, false, error)
                 
             }
         }

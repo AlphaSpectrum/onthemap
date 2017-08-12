@@ -22,6 +22,8 @@
 		FA95674D1F3DDD1500E7E681 /* UConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95674C1F3DDD1500E7E681 /* UConnectionConfig.swift */; };
 		FA9567511F3E013500E7E681 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567501F3E013500E7E681 /* Authentication.swift */; };
 		FA9567531F3E23BE00E7E681 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567521F3E23BE00E7E681 /* User.swift */; };
+		FA9567571F3E45CB00E7E681 /* UserAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567561F3E45CB00E7E681 /* UserAlertable.swift */; };
+		FA9567591F3E47CF00E7E681 /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9567581F3E47CF00E7E681 /* GDCBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		FA95674C1F3DDD1500E7E681 /* UConnectionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UConnectionConfig.swift; sourceTree = "<group>"; };
 		FA9567501F3E013500E7E681 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FA9567521F3E23BE00E7E681 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA9567561F3E45CB00E7E681 /* UserAlertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAlertable.swift; sourceTree = "<group>"; };
+		FA9567581F3E47CF00E7E681 /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +78,9 @@
 		FA9567241F3DD65F00E7E681 /* The Map */ = {
 			isa = PBXGroup;
 			children = (
-				FA9567251F3DD65F00E7E681 /* AppDelegate.swift */,
 				FA9567291F3DD65F00E7E681 /* Main.storyboard */,
+				FA9567251F3DD65F00E7E681 /* AppDelegate.swift */,
+				FA9567581F3E47CF00E7E681 /* GDCBlackBox.swift */,
 				FA9567451F3DD97600E7E681 /* Controllers */,
 				FA9567421F3DD8F300E7E681 /* API */,
 				FA9567411F3DD8DF00E7E681 /* Model */,
@@ -94,6 +99,7 @@
 				FA95674A1F3DDBB300E7E681 /* RequestHandler.swift */,
 				FA95673C1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift */,
 				FA9567481F3DDB4800E7E681 /* JSONParsable.swift */,
+				FA9567561F3E45CB00E7E681 /* UserAlertable.swift */,
 			);
 			name = Dist;
 			sourceTree = "<group>";
@@ -199,8 +205,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9567531F3E23BE00E7E681 /* User.swift in Sources */,
+				FA9567571F3E45CB00E7E681 /* UserAlertable.swift in Sources */,
 				FA9567471F3DDA1300E7E681 /* StudentInformation.swift in Sources */,
 				FA9567441F3DD95500E7E681 /* LoginViewController.swift in Sources */,
+				FA9567591F3E47CF00E7E681 /* GDCBlackBox.swift in Sources */,
 				FA9567491F3DDB4800E7E681 /* JSONParsable.swift in Sources */,
 				FA95673B1F3DD69900E7E681 /* ConnectionClient.swift in Sources */,
 				FA95673D1F3DD74700E7E681 /* ConnectionClientRequestMethod.swift in Sources */,
