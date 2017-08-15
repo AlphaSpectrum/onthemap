@@ -9,8 +9,10 @@
 import Foundation
 
 enum ConnectionRequestMethod {
+    
     case post
     case put
     case get
     case delete
+    
 }

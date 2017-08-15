@@ -18,9 +18,21 @@ struct Location {
     var coordinates: Coordinates
 }
 
+struct Name {
+    var first: String
+    var last: String
+}
+
 struct StudentInformation {
-    var firstName: String
-    var lastName: String
-    var address: Location
-    var mediaURL: String
+    var name: Name
+    var address: Location!
+    var mediaURL: String!
+    var studentDictionary: [String : AnyObject]?
+    
+    init(name: Name, address: Location!, mediaURL: String!, studentDictionary: [String : AnyObject]? = nil) {
+        self.name = name
+        self.address = address
+        self.mediaURL = mediaURL
+        self.studentDictionary = studentDictionary
+    }
 }

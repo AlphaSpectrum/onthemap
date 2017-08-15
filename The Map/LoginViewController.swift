@@ -9,127 +9,97 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, UIUserFeedback, KeyboardManager {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginRegionView: UIView!
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
-    let connection = UConnectionConfig.shared.instance
+    let acitivyIndicator = UIActivityIndicatorView()
     
     override var shouldAutorotate: Bool {
-        
         return false
-        
     }
     
     override func viewDidLoad() {
-
+        super.viewDidLoad()
         registerForKeyboardNotifications()
-        
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        
     }
     
     @IBAction private func loginPressed(_ sender: Any) {
-        
-        let username = userNameTextField.text
-        let password = passwordTextField.text
-        
-        connection.loginToUdacityAccount(username: username!, password: password!) {
-            data, success, error in
-            
-            if success! {
+        if (userNameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+            alertUser(self, title: "", message: "Username and password cannot be blank.", actionName: "OK", actionHandler: nil)
+        } else {
+            let username = userNameTextField.text
+            let password = passwordTextField.text
+            displayActivityIndicator(viewController: self, activityIndicator: acitivyIndicator, isHidden: false)
+            ConnectionHandler.shared.instance.loginToUdacityAccount(username: username!, password: password!) {
+                data, success, error in
                 
-                self.delegate.user = User(sessionID: data?.userSessionID, uniqueID: data?.userUniqueKey)
-                
-                self.completeLogin()
-                
-            } else {
-                
-                performUIUpdatesOnMain { self.alertUser(title: "Error", message: error!, actionName: "Dismiss") }
-                
+                if success! {
+                    let userID = data?.userUniqueKey
+                    let sessionID = data?.userSessionID
+                    ConnectionHandler.shared.instance.getAuthenticatedStudentInformation(userID: userID!) {
+                        name, errorMessage in
+                        if errorMessage == nil {
+                            let name = Name(first: (name?.first)!, last: (name?.last)!)
+                            let student = StudentInformation(name: name, address: nil, mediaURL: "")
+                            self.delegate.user = User(sessionID: sessionID!, uniqueID: userID!, student: student)
+                            performUIUpdatesOnMain{ self.completeLogin() }
+                        } else {
+                            performUIUpdatesOnMain {
+                                self.alertUser(self, title: "Error", message: errorMessage!, actionName: "Dismiss", actionHandler: nil)
+                            }
+                        }
+                        performUIUpdatesOnMain {
+                            self.displayActivityIndicator(viewController: self, activityIndicator: self.acitivyIndicator, isHidden: true)
+                        }
+                    }
+                } else {
+                    performUIUpdatesOnMain {
+                        self.displayActivityIndicator(viewController: self, activityIndicator: self.acitivyIndicator, isHidden: true)
+                        self.alertUser(self, title: "Error", message: error!, actionName: "Dismiss", actionHandler: nil)
+                    }
+                }
             }
-            
         }
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
         self.view.endEditing(true)
-    
         return false
-        
     }
     
-    private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
-        
+    internal func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
-        
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        
         return keyboardSize.cgRectValue.height
-        
     }
     
     func keyboardWillShow(_ notification: Notification) {
-        
         let keyboardHeight = getKeyboardHeight(notification)
-        
-        var viewDistanceToBottom: CGFloat {
-            
-            let loginRegionViewCoordinateY = loginRegionView.frame.origin.y
-            let loginRegionViewHeight = loginRegionView.frame.size.height
-            let viewHeight = self.view.frame.size.height
-            
-            return (viewHeight - (loginRegionViewCoordinateY + loginRegionViewHeight))
-            
-        }
+        let viewDistanceToBottom = objectDistanceToBottomOf(currentView: self, objectToMeasure: loginRegionView)
         
         if keyboardHeight > viewDistanceToBottom {
-            
             self.view.frame.origin.y = 0
             self.view.frame.origin.y -= (keyboardHeight - viewDistanceToBottom) + 5
-            
         }
-        
     }
     
-    func keyboardWilldHide() {
-        
+    func keyboardWillHide() {
         self.view.frame.origin.y = 0
-        
     }
     
     private func completeLogin() {
-        
-        performSegue(withIdentifier: "LoginViewSegue", sender: nil)
-        
+        self.performSegue(withIdentifier: "LoginViewSegue", sender: nil)
     }
     
     
     func registerForKeyboardNotifications() {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWilldHide), name: .UIKeyboardWillHide, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
-    
-}
-
-extension LoginViewController: UserAlertable {
-    
-    internal func alertUser(title: String, message: String, actionName: String) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: actionName, style: UIAlertActionStyle.default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
 }
