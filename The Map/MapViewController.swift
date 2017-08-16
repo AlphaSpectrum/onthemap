@@ -14,7 +14,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIUserFeedback {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let delegate = UIApplication.shared.delegate as! AppDelegate
     let activity = UIActivityIndicatorView()
     
     var annotations: [MKPointAnnotation]?
@@ -89,7 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIUserFeedback {
         ConnectionHandler.shared.instance.getStudentInformation() {
             students, errorMessage in
             if errorMessage == nil {
-                self.delegate.studentInformation = students
+                StudentModel.shared.students = students
                 performUIUpdatesOnMain { self.loadUsersOnMap(students!) }
             } else {
                 performUIUpdatesOnMain { self.alertUser(self, title: "Error", message: errorMessage!, actionName: "Dismiss", actionHandler: nil) }

@@ -62,22 +62,8 @@ class ConnectionHandler: ConnectionClient {
             if success! {
                 let json = self.convertToJSON(data: data!)
                 let studentArray = json["results"] as! [[String : AnyObject]]
-                var students = [StudentInformation]()
-                for student in studentArray {
-                    if let latitude = student["latitude"] as? Double,
-                        let longitude = student["longitude"] as? Double,
-                        let first = student["firstName"] as? String,
-                        let last = student["lastName"] as? String,
-                        let mediaURL = student["mediaURL"] as? String,
-                        let mapString = student["mapString"] as? String {
-                        let coordinates = Coordinates(latitude: latitude, longitude: longitude)
-                        let address = Location(mapString: mapString, coordinates: coordinates)
-                        let name = Name(first: first, last: last)
-                        let student = StudentInformation(name: name, address: address, mediaURL: mediaURL)
-                        students.append(student)
-                    }
-                }
-                completionHandler(students, nil)
+                Student(studentArray)
+                completionHandler(StudentModel.shared.students, nil)
             } else {
                 completionHandler(nil, error)
             }

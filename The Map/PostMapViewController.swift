@@ -13,9 +13,7 @@ import MapKit
 class PostMapViewController: UIViewController, UIUserFeedback {
     
     @IBOutlet weak var mapView: MKMapView!
-    
-    let delegate = UIApplication.shared.delegate as! AppDelegate
-    
+        
     var searchQuery: String?
     var mediaURL: String!
     var searchResults: [MKMapItem]?
@@ -64,7 +62,7 @@ class PostMapViewController: UIViewController, UIUserFeedback {
     
     @IBAction func finishButtonPressed(_ sender: Any) {
         displayActivityIndicator(viewController: self, activityIndicator: activity, isHidden: false)
-        let loggedUser = delegate.user
+        let loggedUser = StudentModel.shared.user
         if let firstName = loggedUser?.student?.name.first,
             let lastName = loggedUser?.student?.name.last,
             let mapString = selectedLocation?.title,

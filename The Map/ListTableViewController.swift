@@ -11,7 +11,6 @@ import UIKit
 
 class ListTableViewController: UITableViewController, UIUserFeedback {
     
-    let delegate = UIApplication.shared.delegate as! AppDelegate
     let cellReuseIdentifier = "ListTableCell"
     let activity = UIActivityIndicatorView()
     
@@ -42,7 +41,7 @@ class ListTableViewController: UITableViewController, UIUserFeedback {
         ConnectionHandler.shared.instance.getStudentInformation() {
             students, errorMessage in
             if errorMessage == nil {
-                self.delegate.studentInformation = students
+                StudentModel.shared.students = students
             } else {
                 performUIUpdatesOnMain { self.alertUser(self, title: "Error", message: errorMessage!, actionName: "Dismiss", actionHandler: nil) }
             }
@@ -51,17 +50,17 @@ class ListTableViewController: UITableViewController, UIUserFeedback {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let studentCount = delegate.studentInformation?.count {
-            return studentCount
+        if let studentCount = StudentModel.shared.students {
+            return studentCount.count
         }
         return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
-        let selectedStudent = delegate.studentInformation?[indexPath.row]
-        cell?.textLabel?.text = "\(selectedStudent!.name.first) \(selectedStudent!.name.last)"
-        cell?.detailTextLabel?.text = selectedStudent!.mediaURL
+        let selectedStudent = StudentModel.shared.students[indexPath.row]
+        cell?.textLabel?.text = "\(selectedStudent.name.first) \(selectedStudent.name.last)"
+        cell?.detailTextLabel?.text = selectedStudent.mediaURL
         userCell.append(cell!)
         return cell!
     }

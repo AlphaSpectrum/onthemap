@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIUserFeedback
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginRegionView: UIView!
     
-    let delegate = UIApplication.shared.delegate as! AppDelegate
     let acitivyIndicator = UIActivityIndicatorView()
     
     override var shouldAutorotate: Bool {
@@ -47,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIUserFeedback
                         if errorMessage == nil {
                             let name = Name(first: (name?.first)!, last: (name?.last)!)
                             let student = StudentInformation(name: name, address: nil, mediaURL: "")
-                            self.delegate.user = User(sessionID: sessionID!, uniqueID: userID!, student: student)
+                            StudentModel.shared.user = User(sessionID: sessionID!, uniqueID: userID!, student: student)
                             performUIUpdatesOnMain{ self.completeLogin() }
                         } else {
                             performUIUpdatesOnMain {
