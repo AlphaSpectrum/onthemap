@@ -14,16 +14,16 @@ class PostMapViewController: UIViewController, UIUserFeedback {
     
     @IBOutlet weak var mapView: MKMapView!
         
-    var searchQuery: String?
+    //var searchQuery: String?
     var mediaURL: String!
     var searchResults: [MKMapItem]?
     var selectedLocation: MKPlacemark?
     var activity = UIActivityIndicatorView()
     
     override func viewDidLoad() {
-        placeSearchResultOnMap()
+        updateMapWithSearchResults()
     }
-    
+    /*
     private func placeSearchResultOnMap() {
         displayActivityIndicator(viewController: self, activityIndicator: activity, isHidden: false)
         let request = MKLocalSearchRequest()
@@ -42,7 +42,7 @@ class PostMapViewController: UIViewController, UIUserFeedback {
             }
         })
     }
-    
+    */
     private func updateMapWithSearchResults() {
         for result in searchResults! {
             selectedLocation = result.placemark
@@ -73,11 +73,11 @@ class PostMapViewController: UIViewController, UIUserFeedback {
             let mediaURL = mediaURL {
             let address = Location(mapString: mapString, coordinates: Coordinates(latitude: latitude, longitude: longitude))
             let name = Name(first: firstName, last: lastName)
-            let student = StudentInformation(name: name, address: address, mediaURL: mediaURL)
+            let student = Information(name: name, address: address, mediaURL: mediaURL)
             let user = User(sessionID: sessionID, uniqueID: uniqueID, student: student)
             ConnectionHandler.shared.instance.postStudentInformation(user: user) {
                 success, errorMessage in
-                if success! {
+                if success != nil {
                     performUIUpdatesOnMain {
                         self.displayActivityIndicator(viewController: self, activityIndicator: self.activity, isHidden: true)
                         self.alertUser(self, title: "Success!", message: "Your location has been posted successfully.", actionName: "Dismiss", actionHandler: {

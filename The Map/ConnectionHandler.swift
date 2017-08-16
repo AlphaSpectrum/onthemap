@@ -10,7 +10,6 @@ import Foundation
 
 class ConnectionHandler: ConnectionClient {
         
-    var studentData = [StudentInformation]()
     var userID: String?
     var sessionID: String?
     var httpHeaders = [
@@ -51,7 +50,7 @@ class ConnectionHandler: ConnectionClient {
         }
     }
     
-    func getStudentInformation(completionHandler: @escaping (_ students: [StudentInformation]?, _ errorMessage: String?) -> Void) {
+    func getStudentInformation(completionHandler: @escaping (_ students: [Information]?, _ errorMessage: String?) -> Void) {
         let query = [
             "order" : "-updatedAt",
             "limit" : 100
@@ -62,7 +61,7 @@ class ConnectionHandler: ConnectionClient {
             if success! {
                 let json = self.convertToJSON(data: data!)
                 let studentArray = json["results"] as! [[String : AnyObject]]
-                Student(studentArray)
+                let _ = Student(studentArray)
                 completionHandler(StudentModel.shared.students, nil)
             } else {
                 completionHandler(nil, error)

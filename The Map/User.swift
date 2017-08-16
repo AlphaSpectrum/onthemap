@@ -11,5 +11,5 @@ import Foundation
 struct User {
     var sessionID: String
     var uniqueID: String
-    var student: StudentInformation?
+    var student: Information?
 }

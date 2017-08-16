@@ -23,23 +23,16 @@ struct Name {
     var last: String
 }
 
-struct StudentInformation {
+struct Information {
     var name: Name
     var address: Location!
     var mediaURL: String!
-    //var studentDictionary: [String : AnyObject]?
     
-    /*init(name: Name, address: Location!, mediaURL: String!, studentDictionary: [String : AnyObject]? = nil) {
-        self.name = name
-        self.address = address
-        self.mediaURL = mediaURL
-        self.studentDictionary = studentDictionary
-    }*/
 }
 
 struct Student {
     init(_ dictionary: [[String : AnyObject]]) {
-        var students = [StudentInformation]()
+        var students = [Information]()
         for student in dictionary {
             if let latitude = student["latitude"] as? Double,
                 let longitude = student["longitude"] as? Double,
@@ -50,7 +43,7 @@ struct Student {
                 let coordinates = Coordinates(latitude: latitude, longitude: longitude)
                 let address = Location(mapString: mapString, coordinates: coordinates)
                 let name = Name(first: first, last: last)
-                let student = StudentInformation(name: name, address: address, mediaURL: mediaURL)
+                let student = Information(name: name, address: address, mediaURL: mediaURL)
                 students.append(student)
             }
         }
@@ -60,6 +53,6 @@ struct Student {
 
 class StudentModel {
     static var shared = StudentModel()
-    var students: [StudentInformation]!
+    var students: [Information]!
     var user: User!
 }

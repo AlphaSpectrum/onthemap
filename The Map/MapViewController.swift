@@ -97,7 +97,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIUserFeedback {
         }
     }
     
-    private func loadUsersOnMap(_ students: [StudentInformation]) {
+    private func loadUsersOnMap(_ students: [Information]) {
         if annotations != nil {
             mapView.removeAnnotations(annotations!)
         }

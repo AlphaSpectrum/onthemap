@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIUserFeedback
                         name, errorMessage in
                         if errorMessage == nil {
                             let name = Name(first: (name?.first)!, last: (name?.last)!)
-                            let student = StudentInformation(name: name, address: nil, mediaURL: "")
+                            let student = Information(name: name, address: nil, mediaURL: "")
                             StudentModel.shared.user = User(sessionID: sessionID!, uniqueID: userID!, student: student)
                             performUIUpdatesOnMain{ self.completeLogin() }
                         } else {
