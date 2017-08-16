@@ -10,8 +10,6 @@ import Foundation
 
 class ConnectionHandler: ConnectionClient {
         
-    var userID: String?
-    var sessionID: String?
     var httpHeaders = [
         Constants.Key.api : Constants.Value.api,
         Constants.Key.parse : Constants.Value.parse
